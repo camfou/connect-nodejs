@@ -385,8 +385,8 @@ describe 'Access Token', ->
         token.jti.should.equal payload.jti
         token.iss.should.equal payload.iss
         token.sub.should.equal payload.sub
-        token.exp.should.be.a.number
-        token.iat.should.be.a.number
+        token.exp.should.be.a('number')
+        token.iat.should.be.a('number')
         token.aud.should.equal payload.aud
         token.scope.should.equal payload.scope
 

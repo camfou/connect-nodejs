@@ -30,7 +30,7 @@ describe 'REST API Client Role Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -41,8 +41,8 @@ describe 'REST API Client Role Methods', ->
           .get('/v1/clients/authority/roles')
           .reply(200, [{name: 'realm'}])
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = clientRoles.listRoles.bind(instance)('authority', {
           token: 'token'
@@ -62,7 +62,7 @@ describe 'REST API Client Role Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -74,8 +74,8 @@ describe 'REST API Client Role Methods', ->
           .get('/v1/clients/authority/roles')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = clientRoles.listRoles.bind(instance)('authority')
           .then(success, failure)
@@ -101,7 +101,7 @@ describe 'REST API Client Role Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -114,8 +114,8 @@ describe 'REST API Client Role Methods', ->
             added: true
           })
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = clientRoles.addRole.bind(instance)('authority', 'realm', {
           token: 'token'
@@ -135,7 +135,7 @@ describe 'REST API Client Role Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -148,8 +148,8 @@ describe 'REST API Client Role Methods', ->
           .put('/v1/clients/invalid/roles/addition')
           .reply(400, 'Bad request')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = clientRoles.addRole.bind(instance)('invalid', 'addition', {
           token: 'token'
@@ -173,7 +173,7 @@ describe 'REST API Client Role Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -186,8 +186,8 @@ describe 'REST API Client Role Methods', ->
           .delete('/v1/clients/authority/roles/realm')
           .reply(204)
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = clientRoles.deleteRole.bind(instance)('authority', 'realm', {
           token: 'token'
@@ -207,7 +207,7 @@ describe 'REST API Client Role Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -220,8 +220,8 @@ describe 'REST API Client Role Methods', ->
           .delete('/v1/clients/invalid/roles/deletion')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = clientRoles.deleteRole.bind(instance)('invalid', 'deletion', {
           token: 'token'

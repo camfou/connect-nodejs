@@ -30,7 +30,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      beforeEach (done) ->
+      beforeEach () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -41,8 +41,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users')
           .reply(200, [{_id: 'uuid'}])
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.list.bind(instance)()
           .then(success, failure)
@@ -61,7 +61,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -72,8 +72,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users')
           .reply(200, [{_id: 'uuid'}])
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.list.bind(instance)({ token: 'token' })
           .then(success, failure)
@@ -92,7 +92,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -103,8 +103,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.list.bind(instance)({ token: 'token' })
           .then(success, failure)
@@ -125,7 +125,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      beforeEach (done) ->
+      beforeEach () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -136,8 +136,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users/uuid')
           .reply(200, [{_id: 'uuid'}])
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.get.bind(instance)('uuid')
           .then(success, failure)
@@ -156,7 +156,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -169,8 +169,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users/uuid')
           .reply(200, {_id: 'uuid'})
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.get.bind(instance)('uuid', { token: 'token' })
           .then(success, failure)
@@ -189,7 +189,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -202,8 +202,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users/uuid')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.get.bind(instance)('uuid', { token: 'token' })
           .then(success, failure)
@@ -222,7 +222,7 @@ describe 'REST API User Methods', ->
     describe 'with a missing access token', ->
       {promise,success,failure} = {}
 
-      beforeEach (done) ->
+      beforeEach () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -233,8 +233,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users/email/mail')
           .reply(200, {_id: 'uuid', email: 'mail'})
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.getByEmail.bind(instance)('uuid')
           .then(success, failure)
@@ -253,7 +253,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -266,8 +266,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users/email/mail')
           .reply(200, {_id: 'uuid', email: 'mail'})
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.getByEmail.bind(instance)('mail', { token: 'token' })
           .then(success, failure)
@@ -285,7 +285,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -298,8 +298,8 @@ describe 'REST API User Methods', ->
           .get('/v1/users/email/mail')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.getByEmail.bind(instance)('mail', { token: 'token' })
           .then(success, failure)
@@ -319,7 +319,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      beforeEach (done) ->
+      beforeEach () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -330,8 +330,8 @@ describe 'REST API User Methods', ->
           .post('/v1/users')
           .reply(200, [{_id: 'uuid'}])
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.create.bind(instance)({})
           .then(success, failure)
@@ -350,7 +350,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -368,8 +368,8 @@ describe 'REST API User Methods', ->
             redirect_uris: ['https://example.anvil.io']
           })
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.create.bind(instance)({
           redirect_uris: ['https://example.anvil.io']
@@ -391,7 +391,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -404,8 +404,8 @@ describe 'REST API User Methods', ->
           .post('/v1/users', {})
           .reply(400, 'Bad request')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.create.bind(instance)({
           redirect_uris: ['https://example.anvil.io']
@@ -431,7 +431,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      beforeEach (done) ->
+      beforeEach () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -442,8 +442,8 @@ describe 'REST API User Methods', ->
           .patch('/v1/users/uuid')
           .reply(200, {_id: 'uuid'})
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.update.bind(instance)('uuid', {})
           .then(success, failure)
@@ -463,7 +463,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -481,8 +481,8 @@ describe 'REST API User Methods', ->
             redirect_uris: ['https://example.anvil.io']
           })
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.update.bind(instance)('uuid', {
           redirect_uris: ['https://example.anvil.io']
@@ -506,7 +506,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -519,8 +519,8 @@ describe 'REST API User Methods', ->
           .patch('/v1/users/uuid', {})
           .reply(400, 'Bad request')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.update.bind(instance)('uuid', {
           redirect_uris: ['https://example.anvil.io']
@@ -545,7 +545,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      beforeEach (done) ->
+      beforeEach () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -556,8 +556,8 @@ describe 'REST API User Methods', ->
           .delete('/v1/users/uuid')
           .reply(401, 'Unauthorized')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.delete.bind(instance)('uuid')
           .then(success, failure)
@@ -577,7 +577,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -590,8 +590,8 @@ describe 'REST API User Methods', ->
           .delete('/v1/users/uuid')
           .reply(204)
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.delete.bind(instance)('uuid', { token: 'token' })
           .then(success, failure)
@@ -610,7 +610,7 @@ describe 'REST API User Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -623,8 +623,8 @@ describe 'REST API User Methods', ->
           .delete('/v1/users/uuid')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = users.delete.bind(instance)('uuid', { token: 'token' })
           .then(success, failure)
