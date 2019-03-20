@@ -1,6 +1,8 @@
-# Anvil Connect client for Node.js 
-[![NPM Version](https://img.shields.io/npm/v/anvil-connect-nodejs.svg?style=flat)](https://npm.im/anvil-connect-nodejs)
-[![Build Status](https://travis-ci.org/anvilresearch/connect-nodejs.svg?branch=master)](https://travis-ci.org/anvilresearch/connect-nodejs)
+# Anvil Connect client for Node.js / camfou fork
+![Build Status](https://img.shields.io/travis/camfou/connect-nodejs/master.svg) 
+![License](https://img.shields.io/github/license/camfou/connect-nodejs.svg) 
+![npm](https://img.shields.io/david/camfou/connect-nodejs.svg?style=flat) 
+![Coverage Status](https://coveralls.io/repos/github/camfou/connect-nodejs/badge.svg?branch=master)
 
 [Anvil Connect][connect] is a modern authorization server built to authenticate 
 your users and protect your APIs. It's based on [OAuth 2.0][oauth2] and 
@@ -13,9 +15,8 @@ middleware. These higher-level functions are being split out into a
 
 [oauth2]: http://tools.ietf.org/html/rfc6749
 [oidc]: http://openid.net/connect/
-[connect]: https://github.com/anvilresearch/connect
-[connect-nodejs]: https://github.com/anvilresearch/connect-nodejs
-[connect-express]: https://github.com/anvilresearch/connect-express
+[connect]: https://github.com/camfou/connect
+[connect-nodejs]: https://github.com/camfou/connect-nodejs
 
 ### Install
 

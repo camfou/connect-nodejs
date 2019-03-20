@@ -3,8 +3,8 @@
  * Module dependencies
  */
 
-var qs = require('qs')
 var url = require('url')
+var URL = url.URL
 var async = require('async')
 var request = require('request-promise')
 var clientRoles = require('./rest/clientRoles')
@@ -60,8 +60,8 @@ function AnvilConnect (options) {
   this.agentOptions = options.agentOptions
   this.proxy = options.proxy
 
-  this.scope = 'openid profile'  // Init to default
-  this.addScope(options.scope)   // Set Union any additional scopes passed in
+  this.scope = 'openid profile' // Init to default
+  this.addScope(options.scope) // Set Union any additional scopes passed in
 
   // initialize the Anvil Connect admin API
   this.initAdminAPI()
@@ -94,6 +94,7 @@ function addScope (scope) {
   // Convert back to string
   this.scope = Array.from(newScope).join(' ')
 }
+
 AnvilConnect.prototype.addScope = addScope
 
 /**
@@ -111,12 +112,11 @@ function discover () {
   var self = this
 
   // construct the uri
-  var uri = url.parse(this.issuer)
+  var uri = new URL(this.issuer)
   uri.pathname = '.well-known/openid-configuration'
-  uri = url.format(uri)
 
   var requestOptions = {
-    url: uri,
+    url: uri.href,
     method: 'GET',
     json: true,
     agentOptions: self.agentOptions
@@ -143,6 +143,7 @@ function discover () {
       })
   })
 }
+
 AnvilConnect.prototype.discover = discover
 
 /**
@@ -158,6 +159,7 @@ function extractIssuer (token) {
   var claims = JWT.decode(token, null, { noVerify: true })
   return claims.payload.iss
 }
+
 AnvilConnect.prototype.extractIssuer = extractIssuer
 
 /**
@@ -193,6 +195,7 @@ function getClientAccessToken () {
       return tokenResponse.access_token
     })
 }
+
 AnvilConnect.prototype.getClientAccessToken = getClientAccessToken
 
 /**
@@ -232,6 +235,7 @@ function getJWKs () {
       })
   })
 }
+
 AnvilConnect.prototype.getJWKs = getJWKs
 
 /**
@@ -277,6 +281,7 @@ function initAdminAPI () {
   this.users = {
     list: users.list.bind(this),
     get: users.get.bind(this),
+    getByEmail: users.getByEmail.bind(this),
     create: users.create.bind(this),
     update: users.update.bind(this),
     delete: users.delete.bind(this),
@@ -287,6 +292,7 @@ function initAdminAPI () {
     }
   }
 }
+
 AnvilConnect.prototype.initAdminAPI = initAdminAPI
 
 /**
@@ -318,6 +324,7 @@ function initProvider () {
       return self.getJWKs()
     })
 }
+
 AnvilConnect.prototype.initProvider = initProvider
 
 /**
@@ -383,6 +390,7 @@ function register (options) {
       return data
     })
 }
+
 AnvilConnect.prototype.register = register
 
 /**
@@ -399,6 +407,7 @@ function registeredPostLogoutUris () {
   uris = this.registration.post_logout_redirect_uris || []
   return uris
 }
+
 AnvilConnect.prototype.registeredPostLogoutUris = registeredPostLogoutUris
 
 /**
@@ -412,7 +421,7 @@ AnvilConnect.prototype.registeredPostLogoutUris = registeredPostLogoutUris
  * @return {String} Authorization uri
  */
 function authorizationUri (options) {
-  var u = url.parse(this.configuration.authorization_endpoint)
+  var u = new URL(this.configuration.authorization_endpoint)
 
   // assign endpoint and ensure options
   var endpoint = 'authorize'
@@ -429,10 +438,14 @@ function authorizationUri (options) {
   u.pathname = endpoint
 
   // request params
-  u.query = this.authorizationParams(options)
+  let authorizationParams = this.authorizationParams(options)
+  for (const param in authorizationParams) {
+    u.searchParams.append(param, authorizationParams[param])
+  }
 
-  return url.format(u)
+  return u.href
 }
+
 AnvilConnect.prototype.authorizationUri = authorizationUri
 
 /**
@@ -499,6 +512,7 @@ function authorizationParams (options) {
 
   return params
 }
+
 AnvilConnect.prototype.authorizationParams = authorizationParams
 
 /**
@@ -538,6 +552,7 @@ function refresh (options) {
     })
   })
 }
+
 AnvilConnect.prototype.refresh = refresh
 
 /**
@@ -558,6 +573,7 @@ AnvilConnect.prototype.refresh = refresh
 function serialize () {
   return JSON.stringify(this)
 }
+
 AnvilConnect.prototype.serialize = serialize
 
 /**
@@ -599,6 +615,7 @@ function signout (idToken, postLogoutRedirectUri) {
       return request(requestOptions)
     })
 }
+
 AnvilConnect.prototype.signout = signout
 
 /**
@@ -663,8 +680,8 @@ function token (options) {
     // For 'authorization_code' grant type, need to get the code
     // if code is not passed in explicitly, try extract it from responseUri
     if (!code && options.responseUri) {
-      var u = url.parse(options.responseUri)
-      code = qs.parse(u.query).code
+      var u = new URL(options.responseUri)
+      code = u.searchParams.get('code')
     }
     if (!code) {
       return Promise.reject(new Error('Missing authorization code'))
@@ -736,6 +753,7 @@ function token (options) {
       })
   })
 }
+
 AnvilConnect.prototype.token = token
 
 /**
@@ -776,6 +794,7 @@ function userInfo (options) {
       return request(requestOptions)
     })
 }
+
 AnvilConnect.prototype.userInfo = userInfo
 
 /**
@@ -806,6 +825,7 @@ function verify (token, options) {
     })
   })
 }
+
 AnvilConnect.prototype.verify = verify
 
 /**

@@ -1,1 +1,1 @@
---recursive
+--require coffeescript/register -R dot test/**/*.{coffee,js}

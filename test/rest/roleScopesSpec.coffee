@@ -31,7 +31,7 @@ describe 'REST API Role Scope Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -42,8 +42,8 @@ describe 'REST API Role Scope Methods', ->
           .get('/v1/roles/authority/scopes')
           .reply(200, [{name: 'realm'}])
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = roleScopes.listScopes.bind(instance)('authority', {
           token: 'token'
@@ -63,7 +63,7 @@ describe 'REST API Role Scope Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -75,8 +75,8 @@ describe 'REST API Role Scope Methods', ->
           .get('/v1/roles/authority/scopes')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = roleScopes.listScopes.bind(instance)('authority')
           .then(success, failure)
@@ -102,7 +102,7 @@ describe 'REST API Role Scope Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -115,8 +115,8 @@ describe 'REST API Role Scope Methods', ->
             added: true
           })
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = roleScopes.addScope.bind(instance)('authority', 'realm', {
           token: 'token'
@@ -136,7 +136,7 @@ describe 'REST API Role Scope Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -149,8 +149,8 @@ describe 'REST API Role Scope Methods', ->
           .put('/v1/roles/invalid/scopes/addition')
           .reply(400, 'Bad request')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = roleScopes.addScope.bind(instance)('invalid', 'addition', {
           token: 'token'
@@ -174,7 +174,7 @@ describe 'REST API Role Scope Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -187,8 +187,8 @@ describe 'REST API Role Scope Methods', ->
           .delete('/v1/roles/authority/scopes/realm')
           .reply(204)
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = roleScopes.deleteScope.bind(instance)('authority', 'realm', {
           token: 'token'
@@ -208,7 +208,7 @@ describe 'REST API Role Scope Methods', ->
 
       {promise,success,failure} = {}
 
-      before (done) ->
+      before () ->
         instance =
           configuration:
             issuer: 'https://connect.anvil.io'
@@ -221,8 +221,8 @@ describe 'REST API Role Scope Methods', ->
           .delete('/v1/roles/invalid/scopes/deletion')
           .reply(404, 'Not found')
 
-        success = sinon.spy -> done()
-        failure = sinon.spy -> done()
+        success = sinon.spy()
+        failure = sinon.spy()
 
         promise = roleScopes.deleteScope.bind(instance)('invalid', 'deletion', {
           token: 'token'

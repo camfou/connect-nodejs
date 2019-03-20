@@ -31,9 +31,9 @@ describe 'Protected API Request', ->
 
     {promise,success,failure} = {}
 
-    before (done) ->
-      success = sinon.spy -> done()
-      failure = sinon.spy -> done()
+    before () ->
+      success = sinon.spy()
+      failure = sinon.spy()
       promise = request.bind(instance)({
         url: '/'
       }).then(success, failure)
@@ -54,9 +54,9 @@ describe 'Protected API Request', ->
 
     {promise,success,failure} = {}
 
-    before (done) ->
-      success = sinon.spy -> done()
-      failure = sinon.spy -> done()
+    before () ->
+      success = sinon.spy()
+      failure = sinon.spy()
       promise = request.bind(instance)({}).then(success, failure)
 
     it 'should return a promise', ->
