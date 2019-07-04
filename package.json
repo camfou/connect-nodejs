@@ -20,7 +20,9 @@
     "test-watch": "mocha --compilers coffee:coffee-script/register -R spec --watch",
     "lint": "eslint --ignore-path .gitignore . && echo Code looks good!",
     "cover": "nyc  --reporter=lcov npm test",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -50,7 +52,8 @@
     "qs": "6.6.0",
     "request": "2.88.0",
     "request-promise": "4.2.4",
-    "superagent": "3.8.3"
+    "superagent": "3.8.3",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -79,5 +82,6 @@
       "describe",
       "it"
     ]
-  }
+  },
+  "snyk": true
 }
