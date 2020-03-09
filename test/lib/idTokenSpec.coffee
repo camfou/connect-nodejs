@@ -20,7 +20,7 @@ chai.should()
 # Code under test
 IDToken = require path.join cwd, 'lib/IDToken'
 IDTokenError = require path.join cwd, 'lib/IDTokenError'
-JWT = require 'anvil-connect-jwt'
+JWT = require 'camfou-connect-jwt'
 base64url = require 'base64url'
 nowSeconds = require(path.join cwd, 'lib/time-utils').nowSeconds
 
