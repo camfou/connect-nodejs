@@ -373,7 +373,7 @@ function register (options) {
   }
   if (token) {
     requestOptions.headers = {
-      'Authorization': 'Bearer ' + token
+      Authorization: 'Bearer ' + token
     }
   }
   if (self.proxy) {
@@ -438,7 +438,7 @@ function authorizationUri (options) {
   u.pathname = endpoint
 
   // request params
-  let authorizationParams = this.authorizationParams(options)
+  const authorizationParams = this.authorizationParams(options)
   for (const param in authorizationParams) {
     u.searchParams.append(param, authorizationParams[param])
   }
@@ -778,7 +778,7 @@ function userInfo (options) {
     url: uri,
     method: 'GET',
     headers: {
-      'Authorization': 'Bearer ' + options.token
+      Authorization: 'Bearer ' + options.token
     },
     json: true,
     agentOptions: agentOptions
