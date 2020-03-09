@@ -20,7 +20,7 @@ chai.should()
 
 # Code under test
 AccessToken = require path.join cwd, 'lib/AccessToken'
-JWT = require 'anvil-connect-jwt'
+JWT = require 'camfou-connect-jwt'
 base64url = require 'base64url'
 nowSeconds = require(path.join cwd, 'lib/time-utils').nowSeconds
 pem2jwk = require('pem-jwk').pem2jwk
