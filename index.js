@@ -5,7 +5,6 @@
 
 var url = require('url')
 var URL = url.URL
-var async = require('async')
 var request = require('request-promise')
 var clientRoles = require('./rest/clientRoles')
 var clients = require('./rest/clients')
@@ -710,47 +709,36 @@ function token (options) {
 
   return new Promise(function (resolve, reject) {
     request(requestOptions)
-      .then(function (data) {
-        var verifyClaims = {
-          access_claims: function (done) {
+      .then(async function (data) {
+        const verifyClaims = [
+          new Promise((resolve, reject) => {
             AccessToken.verify(data.access_token, {
               key: self.jwks.keys[0],
               issuer: self.issuer
-            }, function (err, claims) {
-              if (err) { return done(err) }
-              done(null, claims)
+            }, (err, claims) => {
+              if (err) { reject(err) }
+              resolve(claims)
             })
-          }
-        }
-        // when requesting a token using client credentials no ID information is
-        // returned
+          })
+        ]
         if (formRequestData.grant_type !== 'client_credentials') {
-          verifyClaims.id_claims = function (done) {
+          verifyClaims.push(new Promise((resolve, reject) => {
             IDToken.verify(data.id_token, {
               iss: self.issuer,
               aud: self.client_id,
               key: self.jwks.keys[0]
             }, function (err, token) {
-              if (err) { return done(err) }
-              done(null, token.payload)
+              if (err) { reject(err) }
+              resolve(token.payload)
             })
-          }
+          }))
         }
-        // verify tokens
-        async.parallel(verifyClaims, function (err, result) {
-          if (err) {
-            return reject(err)
-          }
-
-          data.id_claims = result.id_claims
-          data.access_claims = result.access_claims
-
-          resolve(data)
-        })
+        const [accessClaims, idClaims] = await Promise.all(verifyClaims)
+        data.id_claims = idClaims
+        data.access_claims = accessClaims
+        resolve(data)
       })
-      .catch(function (err) {
-        reject(err)
-      })
+      .catch(err => reject(err))
   })
 }
 

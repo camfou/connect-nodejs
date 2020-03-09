@@ -959,7 +959,9 @@ describe('Anvil Connect Client', function () {
         promise = anvil.token({
           grant_type: 'client_credentials',
           scope: 'realm'
-        }).then(success).catch(failure)
+        }).then(data => {
+          return success(data)
+        }).catch(failure)
         return promise
       })
       afterEach(function () {
