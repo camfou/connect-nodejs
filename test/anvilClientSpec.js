@@ -28,52 +28,52 @@ describe('Anvil Connect Client', function () {
     redirect_uri: 'https://app.example.com/callback'
   }
   var openid = {
-    'issuer': 'https://connect.anvil.io',
-    'authorization_endpoint': 'https://connect.anvil.io/authorize',
-    'token_endpoint': 'https://connect.anvil.io/token',
-    'userinfo_endpoint': 'https://connect.anvil.io/userinfo',
-    'jwks_uri': 'https://connect.anvil.io/jwks',
-    'registration_endpoint': 'https://connect.anvil.io/register',
-    'scopes_supported': ['realm', 'client', 'profile', 'openid'],
-    'response_types_supported': ['code', 'token id_token'],
-    'response_modes_supported': [],
-    'grant_types_supported': ['authorization_code', 'refresh_token'],
-    'acr_values_supported': [],
-    'subject_types_supported': ['public'],
-    'id_token_signing_alg_values_supported': ['RS256'],
-    'id_token_encryption_alg_values_supported': [],
-    'id_token_encryption_enc_values_supported': [],
-    'userinfo_signing_alg_values_supported': ['none'],
-    'userinfo_encryption_alg_values_supported': [],
-    'userinfo_encryption_enc_values_supported': [],
-    'request_object_signing_alg_values_supported': [],
-    'request_object_encryption_alg_values_supported': [],
-    'request_object_encryption_enc_values_supported': [],
-    'token_endpoint_auth_methods_supported': ['client_secret_basic', 'client_secret_post'],
-    'token_endpoint_auth_signing_alg_values_supported': [],
-    'display_values_supported': [],
-    'claim_types_supported': ['normal'],
-    'claims_supported': ['iss', 'sub', 'aud', 'acr', 'name', 'given_name', 'family_name', 'middle_name', 'nickname', 'preferred_username', 'profile', 'picture', 'website', 'email', 'email_verified', 'zoneinfo', 'locale', 'joined_at', 'updated_at'],
-    'service_documentation': 'https://anvil.io/docs/connect/',
-    'claims_locales_supported': [],
-    'ui_locales_supported': [],
-    'check_session_iframe': 'https://connect.anvil.io/session',
-    'end_session_endpoint': 'https://connect.anvil.io/signout'
+    issuer: 'https://connect.anvil.io',
+    authorization_endpoint: 'https://connect.anvil.io/authorize',
+    token_endpoint: 'https://connect.anvil.io/token',
+    userinfo_endpoint: 'https://connect.anvil.io/userinfo',
+    jwks_uri: 'https://connect.anvil.io/jwks',
+    registration_endpoint: 'https://connect.anvil.io/register',
+    scopes_supported: ['realm', 'client', 'profile', 'openid'],
+    response_types_supported: ['code', 'token id_token'],
+    response_modes_supported: [],
+    grant_types_supported: ['authorization_code', 'refresh_token'],
+    acr_values_supported: [],
+    subject_types_supported: ['public'],
+    id_token_signing_alg_values_supported: ['RS256'],
+    id_token_encryption_alg_values_supported: [],
+    id_token_encryption_enc_values_supported: [],
+    userinfo_signing_alg_values_supported: ['none'],
+    userinfo_encryption_alg_values_supported: [],
+    userinfo_encryption_enc_values_supported: [],
+    request_object_signing_alg_values_supported: [],
+    request_object_encryption_alg_values_supported: [],
+    request_object_encryption_enc_values_supported: [],
+    token_endpoint_auth_methods_supported: ['client_secret_basic', 'client_secret_post'],
+    token_endpoint_auth_signing_alg_values_supported: [],
+    display_values_supported: [],
+    claim_types_supported: ['normal'],
+    claims_supported: ['iss', 'sub', 'aud', 'acr', 'name', 'given_name', 'family_name', 'middle_name', 'nickname', 'preferred_username', 'profile', 'picture', 'website', 'email', 'email_verified', 'zoneinfo', 'locale', 'joined_at', 'updated_at'],
+    service_documentation: 'https://anvil.io/docs/connect/',
+    claims_locales_supported: [],
+    ui_locales_supported: [],
+    check_session_iframe: 'https://connect.anvil.io/session',
+    end_session_endpoint: 'https://connect.anvil.io/signout'
   }
   var jwks = {
-    'keys': [
+    keys: [
       {
-        'kty': 'RSA',
-        'use': 'sig',
-        'alg': 'RS256',
-        'n': 'zRchTwN0Ok6suWzaWYsbfZ81qdGVZM_LCqR6dhtlHaYAPpyVKefY3U5ByhbvDgbCm3BQ9OLu1E4OEJFkJVYvapxsyosrnSyY7qjLxHGKC-16AQNhX8qssTZVQCzdnKk67RUyKraM87zPkWNU6Qlw539-O9-g54YICKZV7ESfvA4nVvHQTJr8mem6S0GrRHxma8gEecogAvQCw5c2Hb500lW8eGqQ8qFjiBPQVScf4PZul4UO01KFB-cKiK575bFpxLSgfFBIGvqbjRgxLGkJnYq6IhtRfPQ0LAcM8rjYIINcFtLv9P647JcjrwNrxjP-yG_C84UddJl9L5kdA4_8JHom1sfaR7izF2B2mBFrGNODYDj8LctmWi4FaXBAIKa8XNW9lGv6Olc6G9AHpjzcQOY_lwAYWmULsotRRWfuV7wr49CyMSnthcd2smoA7ABed7qfd4FDCIft4SpONu7Mfba-pf8-0yYbXUcCdQzgaFr4P7MzMre4tcMhmWa89tMDP-XklptjgBmmK7RNdqk_g_Ol2KSXb233bIVd3tL8VgO1_vxwrvSZr_k9169GlsB3Ud50ulG_b6MOQxbpKZb1WEP_ajaZ8RnQOAFvfBKxBBxxT6y0maNtRGtpunYWmkxBPs-eJKZrYpVGLSX0ZwPOoPpQDInOuPcAuCp2Y3sEXK8',
-        'e': 'AQAB'
+        kty: 'RSA',
+        use: 'sig',
+        alg: 'RS256',
+        n: 'zRchTwN0Ok6suWzaWYsbfZ81qdGVZM_LCqR6dhtlHaYAPpyVKefY3U5ByhbvDgbCm3BQ9OLu1E4OEJFkJVYvapxsyosrnSyY7qjLxHGKC-16AQNhX8qssTZVQCzdnKk67RUyKraM87zPkWNU6Qlw539-O9-g54YICKZV7ESfvA4nVvHQTJr8mem6S0GrRHxma8gEecogAvQCw5c2Hb500lW8eGqQ8qFjiBPQVScf4PZul4UO01KFB-cKiK575bFpxLSgfFBIGvqbjRgxLGkJnYq6IhtRfPQ0LAcM8rjYIINcFtLv9P647JcjrwNrxjP-yG_C84UddJl9L5kdA4_8JHom1sfaR7izF2B2mBFrGNODYDj8LctmWi4FaXBAIKa8XNW9lGv6Olc6G9AHpjzcQOY_lwAYWmULsotRRWfuV7wr49CyMSnthcd2smoA7ABed7qfd4FDCIft4SpONu7Mfba-pf8-0yYbXUcCdQzgaFr4P7MzMre4tcMhmWa89tMDP-XklptjgBmmK7RNdqk_g_Ol2KSXb233bIVd3tL8VgO1_vxwrvSZr_k9169GlsB3Ud50ulG_b6MOQxbpKZb1WEP_ajaZ8RnQOAFvfBKxBBxxT6y0maNtRGtpunYWmkxBPs-eJKZrYpVGLSX0ZwPOoPpQDInOuPcAuCp2Y3sEXK8',
+        e: 'AQAB'
       }, {
-        'kty': 'RSA',
-        'use': 'enc',
-        'alg': 'RS256',
-        'n': 'xoAIJ40-f5lr07WswyF6XryOtEJSpNYY_RFmMdKWMLoZnZ4dTl9LlBFyXYNunbkKQHXmhTTr_C6FWjUA6JZwCkymtgD5Be8Mz8N8K0RB6nokLzXzUilYrY8m_0G1yLAGAeAv0evGXMJN5GLuHzInB9zPzySr7xsCUB0L5DuEv6WJ4abNw5ylnLKLW9nvGfZDXwJ4YVJOaVre3S8CjvXu1fuTmzBW3VSD9Zttd_NB6uiS0QsvFBifHx-S1PZ_LZNGC52Z3-rs9kMzzneBiBJrhULFsyGF5OQBGBDQD5Ghl_O86DyCXKOGrIDso2l7ZY5vlicL9QD7jeBJnIF9sDnZDugoVneT2yHMBqiDKlFHKjGSE_mKhnD1K-QMolOwbADNytMeu5BDgFYdAkx9hyo1L2f8f4eB7_8XUSCnnQoIR9tb5ie9bSpd4Uel881N97WLVe9hyUVY0YSU3MKHaoNrPYVbGYjRsQrK14-NaZ3bC4Grrwd8eGGFaQeT_a4dIFfBfHtl_wH-DGZIqlTLX9fxfeNu93I4zPky1TlQaTwFiRo-9FXF6I6r2s2WaZKLnFWKdS2c0VrHJQebrkAN0VQNhp9-7jBRQqJmTiNVSg7J5wd7mgCMXIOfktOBHoNiulMRd9rYN21qRxt0xOwFujNZ8mlx2M96gBdhDVq020zJdB0',
-        'e': 'AQAB'
+        kty: 'RSA',
+        use: 'enc',
+        alg: 'RS256',
+        n: 'xoAIJ40-f5lr07WswyF6XryOtEJSpNYY_RFmMdKWMLoZnZ4dTl9LlBFyXYNunbkKQHXmhTTr_C6FWjUA6JZwCkymtgD5Be8Mz8N8K0RB6nokLzXzUilYrY8m_0G1yLAGAeAv0evGXMJN5GLuHzInB9zPzySr7xsCUB0L5DuEv6WJ4abNw5ylnLKLW9nvGfZDXwJ4YVJOaVre3S8CjvXu1fuTmzBW3VSD9Zttd_NB6uiS0QsvFBifHx-S1PZ_LZNGC52Z3-rs9kMzzneBiBJrhULFsyGF5OQBGBDQD5Ghl_O86DyCXKOGrIDso2l7ZY5vlicL9QD7jeBJnIF9sDnZDugoVneT2yHMBqiDKlFHKjGSE_mKhnD1K-QMolOwbADNytMeu5BDgFYdAkx9hyo1L2f8f4eB7_8XUSCnnQoIR9tb5ie9bSpd4Uel881N97WLVe9hyUVY0YSU3MKHaoNrPYVbGYjRsQrK14-NaZ3bC4Grrwd8eGGFaQeT_a4dIFfBfHtl_wH-DGZIqlTLX9fxfeNu93I4zPky1TlQaTwFiRo-9FXF6I6r2s2WaZKLnFWKdS2c0VrHJQebrkAN0VQNhp9-7jBRQqJmTiNVSg7J5wd7mgCMXIOfktOBHoNiulMRd9rYN21qRxt0xOwFujNZ8mlx2M96gBdhDVq020zJdB0',
+        e: 'AQAB'
       }
     ]
   }
@@ -153,14 +153,14 @@ describe('Anvil Connect Client', function () {
         nock(anvil.issuer).get('/.well-known/openid-configuration').reply(200, openid)
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.discover().then(success)['catch'](failure)
+        promise = anvil.discover().then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should provide the openid configuration', function () {
         return success.should.have.been.calledWith(sinon.match({
@@ -185,14 +185,14 @@ describe('Anvil Connect Client', function () {
           .reply(404, 'Not found')
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.discover().then(success)['catch'](failure)
+        promise = anvil.discover().then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the openid configuration', function () {
         return success.should.not.have.been.called
@@ -213,14 +213,14 @@ describe('Anvil Connect Client', function () {
         nock(anvil.issuer).get('/.well-known/openid-configuration').reply(200, 'This isn\'t JSON!')
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.discover().then(success)['catch'](failure)
+        promise = anvil.discover().then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the openid configuration', function () {
         return success.should.not.have.been.called
@@ -241,14 +241,14 @@ describe('Anvil Connect Client', function () {
         nock(anvil.issuer).get('/jwks').reply(200, jwks)
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.getJWKs().then(success)['catch'](failure)
+        promise = anvil.getJWKs().then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should provide the JWK set', function () {
         return success.should.have.been.calledWith(sinon.match(jwks))
@@ -270,14 +270,14 @@ describe('Anvil Connect Client', function () {
         nock(anvil.issuer).get('/jwks').reply(404, 'Not found')
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.getJWKs().then(success)['catch'](failure)
+        promise = anvil.getJWKs().then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the JWK set', function () {
         return success.should.not.have.been.called
@@ -298,14 +298,14 @@ describe('Anvil Connect Client', function () {
         nock(anvil.issuer).post('/register', registration).reply(201, registrationResponse)
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.register(registration).then(success)['catch'](failure)
+        promise = anvil.register(registration).then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should provide the registration response', function () {
         return success.should.have.been.calledWith(sinon.match(registrationResponse))
@@ -323,14 +323,14 @@ describe('Anvil Connect Client', function () {
         })
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.register(registration).then(success)['catch'](failure)
+        promise = anvil.register(registration).then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the registration response', function () {
         return success.should.have.not.been.called
@@ -456,11 +456,11 @@ describe('Anvil Connect Client', function () {
         anvil.configuration = openid
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.refresh().then(success)['catch'](failure)
+        promise = anvil.refresh().then(success).catch(failure)
         return promise
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the tokens', function () {
         return success.should.not.have.been.called
@@ -488,14 +488,14 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.refresh({
           refresh_token: 'random'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the tokens', function () {
         return success.should.not.have.been.called
@@ -526,7 +526,7 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.refresh({
           refresh_token: 'fake_refresh_token'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       after(function () {
@@ -537,7 +537,7 @@ describe('Anvil Connect Client', function () {
         return AccessToken.verify.restore()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the tokens', function () {
         return success.should.not.have.been.called
@@ -575,7 +575,7 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.refresh({
           refresh_token: 'fake_refresh_token'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       after(function () {
@@ -586,7 +586,7 @@ describe('Anvil Connect Client', function () {
         return AccessToken.verify.restore()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should provide the tokens', function () {
         return success.should.have.been.called
@@ -612,11 +612,11 @@ describe('Anvil Connect Client', function () {
         anvil.configuration = openid
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.token().then(success)['catch'](failure)
+        promise = anvil.token().then(success).catch(failure)
         return promise
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the tokens', function () {
         return success.should.not.have.been.called
@@ -633,11 +633,11 @@ describe('Anvil Connect Client', function () {
         anvil.configuration = openid
         success = sinon.spy()
         failure = sinon.spy()
-        promise = anvil.token({}).then(success)['catch'](failure)
+        promise = anvil.token({}).then(success).catch(failure)
         return promise
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the tokens', function () {
         return success.should.not.have.been.called
@@ -670,14 +670,14 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.token({
           code: 'random'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the tokens', function () {
         return success.should.not.have.been.called
@@ -715,7 +715,7 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.token({
           code: 'random'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       after(function () {
@@ -724,7 +724,7 @@ describe('Anvil Connect Client', function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should verify the id token', function () {
         return IDToken.verify.should.have.been.calledWith(tokens.id_token)
@@ -768,7 +768,7 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.token({
           code: 'random'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       after(function () {
@@ -777,7 +777,7 @@ describe('Anvil Connect Client', function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should verify the id token', function () {
         return IDToken.verify.should.have.been.calledWith(tokens.id_token)
@@ -824,7 +824,7 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.token({
           code: 'random'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       afterEach(function () {
@@ -833,7 +833,7 @@ describe('Anvil Connect Client', function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should verify the id token', function () {
         return IDToken.verify.should.have.been.calledWith(tokens.id_token)
@@ -894,7 +894,7 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.token({
           responseUri: 'https://app.example.com/callback?code=random'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       afterEach(function () {
@@ -903,7 +903,7 @@ describe('Anvil Connect Client', function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should verify the id token', function () {
         return IDToken.verify.should.have.been.calledWith(tokens.id_token)
@@ -959,7 +959,9 @@ describe('Anvil Connect Client', function () {
         promise = anvil.token({
           grant_type: 'client_credentials',
           scope: 'realm'
-        }).then(success)['catch'](failure)
+        }).then(data => {
+          return success(data)
+        }).catch(failure)
         return promise
       })
       afterEach(function () {
@@ -968,7 +970,7 @@ describe('Anvil Connect Client', function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should NOT receive an id token', function () {
         return IDToken.verify.should.not.have.been.called
@@ -1009,7 +1011,7 @@ describe('Anvil Connect Client', function () {
         return promise
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide userInfo', function () {
         return success.should.not.have.been.called
@@ -1027,14 +1029,14 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.userInfo({
           token: 'token'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       afterEach(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should provide the userinfo', function () {
         return success.should.have.been.calledWith(sinon.match(userinfo))
@@ -1052,14 +1054,14 @@ describe('Anvil Connect Client', function () {
         failure = sinon.spy()
         promise = anvil.userInfo({
           token: 'token'
-        }).then(success)['catch'](failure)
+        }).then(success).catch(failure)
         return promise
       })
       after(function () {
         return nock.cleanAll()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the userinfo', function () {
         return success.should.not.have.been.called
@@ -1083,14 +1085,14 @@ describe('Anvil Connect Client', function () {
         success = sinon.spy()
         failure = sinon.spy()
         promise = anvil.verify('invalid.access.token')
-          .then(success)['catch'](failure)
+          .then(success).catch(failure)
         return promise
       })
       after(function () {
         return AccessToken.verify.restore()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should not provide the claims', function () {
         return success.should.have.not.been.called
@@ -1112,14 +1114,14 @@ describe('Anvil Connect Client', function () {
         success = sinon.spy()
         failure = sinon.spy()
         promise = anvil.verify('valid.access.token')
-          .then(success)['catch'](failure)
+          .then(success).catch(failure)
         return promise
       })
       after(function () {
         return AccessToken.verify.restore()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should provide the claims', function () {
         return success.should.have.been.calledWith(sinon.match(claims))
@@ -1141,14 +1143,14 @@ describe('Anvil Connect Client', function () {
         success = sinon.spy()
         failure = sinon.spy()
         promise = anvil.verify('invalid.access.token', options)
-          .then(success)['catch'](failure)
+          .then(success).catch(failure)
         return promise
       })
       after(function () {
         return AccessToken.verify.restore()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should pass the options to verify', function () {
         return AccessToken.verify.should.have.been.calledWith(sinon.match.string, sinon.match(options))
@@ -1176,14 +1178,14 @@ describe('Anvil Connect Client', function () {
         success = sinon.spy()
         failure = sinon.spy()
         promise = anvil.verify('valid.access.token', options)
-          .then(success)['catch'](failure)
+          .then(success).catch(failure)
         return promise
       })
       after(function () {
         return AccessToken.verify.restore()
       })
       it('should return a promise', function () {
-        return promise.should.be['instanceof'](Promise)
+        return promise.should.be.instanceof(Promise)
       })
       it('should pass the options to verify', function () {
         return AccessToken.verify.should.have.been.calledWith(sinon.match.string, sinon.match(options))
