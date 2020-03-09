@@ -42,11 +42,11 @@
   },
   "homepage": "https://github.com/anvilresearch/connect-nodejs",
   "dependencies": {
-    "anvil-connect-jwt": "camfou/connect-jwt#0.2.0",
     "async": "1.3.0",
     "base64url": "3.0.1",
+    "camfou-connect-jwt": "0.2.5",
     "jwa": "1.4.1",
-    "lodash": "4.17.11",
+    "lodash": "^4.17.15",
     "qs": "6.6.0",
     "request": "2.88.0",
     "request-promise": "4.2.4",

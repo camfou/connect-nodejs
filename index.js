@@ -17,7 +17,7 @@ var userRoles = require('./rest/userRoles')
 var IDToken = require('./lib/IDToken')
 var AccessToken = require('./lib/AccessToken')
 var UnauthorizedError = require('./errors/UnauthorizedError')
-var JWT = require('anvil-connect-jwt')
+var JWT = require('camfou-connect-jwt')
 
 /**
  * OpenID Connect client (also an Anvil Connect server API client).
