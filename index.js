@@ -21,7 +21,7 @@ var JWT = require('camfou-connect-jwt')
 
 /**
  * OpenID Connect client (also an Anvil Connect server API client).
- * @class AnvilConnect
+ * @class CamfouConnect
  * @param [options={}] {Object} Options hashmap object
  * @param [options.agentOptions={}] {Object} Optional, passed to `request`
  *   library (see npm's `request` or `request-promise` for documentation)
@@ -46,7 +46,7 @@ var JWT = require('camfou-connect-jwt')
  *   (usually loaded via `register()`, unless explicitly passed in here)
  * @constructor
  */
-function AnvilConnect (options) {
+function CamfouConnect (options) {
   options = options || {}
 
   // assign required options
@@ -95,15 +95,15 @@ function addScope (scope) {
   this.scope = Array.from(newScope).join(' ')
 }
 
-AnvilConnect.prototype.addScope = addScope
+CamfouConnect.prototype.addScope = addScope
 
 /**
  * Errors
  */
-AnvilConnect.UnauthorizedError = UnauthorizedError
+CamfouConnect.UnauthorizedError = UnauthorizedError
 
 /**
- * Requests OIDC configuration from the AnvilConnect instance's provider.
+ * Requests OIDC configuration from the CamfouConnect instance's provider.
  * Requires issuer to be set.
  * @method discover
  * @return {Promise}
@@ -144,7 +144,7 @@ function discover () {
   })
 }
 
-AnvilConnect.prototype.discover = discover
+CamfouConnect.prototype.discover = discover
 
 /**
  * Decodes an OIDC issuer (`.iss`) url from an access token and returns it.
@@ -160,15 +160,15 @@ function extractIssuer (token) {
   return claims.payload.iss
 }
 
-AnvilConnect.prototype.extractIssuer = extractIssuer
+CamfouConnect.prototype.extractIssuer = extractIssuer
 
 /**
  * Fetches and returns a Client Credentials Grant access token from the OP's
  * /token endpoint. Convenience method (wrapper for client.token()).
  * Used as one of the methods to get the token that's required for most
- * AnvilConnect API client operations (such as creating Users, Clients, etc).
+ * CamfouConnect API client operations (such as creating Users, Clients, etc).
  * Requires that the client:
- *   - Has been pre-registered with the AnvilConnect server
+ *   - Has been pre-registered with the CamfouConnect server
  *   - Had an 'authority' role assigned to it via `nvl client:assign`
  *   - Has been initialized via client.initProvider()
  * Usage:
@@ -176,7 +176,7 @@ AnvilConnect.prototype.extractIssuer = extractIssuer
  *   ```
  *   client.getClientAccessToken()
  *     .then(function (accessToken) {
- *       // you can now use the AnvilConnect API calls, and pass the token
+ *       // you can now use the CamfouConnect API calls, and pass the token
  *       // in the `options` parameter. For example:
  *       var options = { token: accessToken }
  *       return client.users.create(userData, options)
@@ -196,7 +196,7 @@ function getClientAccessToken () {
     })
 }
 
-AnvilConnect.prototype.getClientAccessToken = getClientAccessToken
+CamfouConnect.prototype.getClientAccessToken = getClientAccessToken
 
 /**
  * Requests JSON Web Key set from configured provider.
@@ -236,7 +236,7 @@ function getJWKs () {
   })
 }
 
-AnvilConnect.prototype.getJWKs = getJWKs
+CamfouConnect.prototype.getJWKs = getJWKs
 
 /**
  * Initializes the Anvil Connect admin API functions. Called by constructor.
@@ -293,7 +293,7 @@ function initAdminAPI () {
   }
 }
 
-AnvilConnect.prototype.initAdminAPI = initAdminAPI
+CamfouConnect.prototype.initAdminAPI = initAdminAPI
 
 /**
  * Initializes provider-related configurations for this client
@@ -301,7 +301,7 @@ AnvilConnect.prototype.initAdminAPI = initAdminAPI
  * Requires the issuer to be already set. Usage:
  *
  *   ```
- *   var client = new AnvilConnect({ issuer: 'https://example.com' })
+ *   var client = new CamfouConnect({ issuer: 'https://example.com' })
  *   client.initProvider()
  *     .then(function () {
  *       // now the client is ready to register() or verify()
@@ -325,7 +325,7 @@ function initProvider () {
     })
 }
 
-AnvilConnect.prototype.initProvider = initProvider
+CamfouConnect.prototype.initProvider = initProvider
 
 /**
  * Registers the client with an OIDC provider.
@@ -391,7 +391,7 @@ function register (options) {
     })
 }
 
-AnvilConnect.prototype.register = register
+CamfouConnect.prototype.register = register
 
 /**
  * Returns the client's pre-registered post-logout redirect URIs if it
@@ -408,7 +408,7 @@ function registeredPostLogoutUris () {
   return uris
 }
 
-AnvilConnect.prototype.registeredPostLogoutUris = registeredPostLogoutUris
+CamfouConnect.prototype.registeredPostLogoutUris = registeredPostLogoutUris
 
 /**
  * Returns the url for an OIDC authorization call, for a given set of options.
@@ -446,7 +446,7 @@ function authorizationUri (options) {
   return u.href
 }
 
-AnvilConnect.prototype.authorizationUri = authorizationUri
+CamfouConnect.prototype.authorizationUri = authorizationUri
 
 /**
  * Composes and returns a hashmap of parameters used for any sort of OIDC
@@ -513,7 +513,7 @@ function authorizationParams (options) {
   return params
 }
 
-AnvilConnect.prototype.authorizationParams = authorizationParams
+CamfouConnect.prototype.authorizationParams = authorizationParams
 
 /**
  * Sends an OIDC refresh token request, verifies the result, and resolves to
@@ -553,7 +553,7 @@ function refresh (options) {
   })
 }
 
-AnvilConnect.prototype.refresh = refresh
+CamfouConnect.prototype.refresh = refresh
 
 /**
  * Returns a string representation of the client config options. These can be
@@ -565,7 +565,7 @@ AnvilConnect.prototype.refresh = refresh
  *   var serializedClient = client.serialize()
  *   // To deserialize later on:
  *   var clientConfig = JSON.parse(serializedClient)
- *   var restoredClient = new AnvilConnect(clientConfig)
+ *   var restoredClient = new CamfouConnect(clientConfig)
  *   ```
  * @method serialize
  * @return {String} JSON representation of the full client config
@@ -574,7 +574,7 @@ function serialize () {
   return JSON.stringify(this)
 }
 
-AnvilConnect.prototype.serialize = serialize
+CamfouConnect.prototype.serialize = serialize
 
 /**
  * Sends a POST request to the provider's `/signout` endpoint, to end a user's
@@ -616,7 +616,7 @@ function signout (idToken, postLogoutRedirectUri) {
     })
 }
 
-AnvilConnect.prototype.signout = signout
+CamfouConnect.prototype.signout = signout
 
 /**
  * Provides a low-level interface to the server's `/token` REST endpoint.
@@ -754,7 +754,7 @@ function token (options) {
   })
 }
 
-AnvilConnect.prototype.token = token
+CamfouConnect.prototype.token = token
 
 /**
  * Retrieves user info / profile from the OIDC Provider (requires a valid access
@@ -795,7 +795,7 @@ function userInfo (options) {
     })
 }
 
-AnvilConnect.prototype.userInfo = userInfo
+CamfouConnect.prototype.userInfo = userInfo
 
 /**
  * Verifies a given OIDC token
@@ -826,9 +826,9 @@ function verify (token, options) {
   })
 }
 
-AnvilConnect.prototype.verify = verify
+CamfouConnect.prototype.verify = verify
 
 /**
  * Exports
  */
-module.exports = AnvilConnect
+module.exports = CamfouConnect

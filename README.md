@@ -21,7 +21,7 @@ middleware. These higher-level functions are being split out into a
 ### Install
 
 ```bash
-$ npm install anvil-connect-nodejs --save
+$ npm install camfou-connect-nodejs --save
 ```
 
 ### Configure
@@ -31,13 +31,13 @@ tokens, or accessing the AnvilConnect-specific API (such as creating users),
 an OIDC client needs to be configured and registered with the server (OIDC
 Provider, OP for short).
 
-#### new AnvilConnect(config)
+#### new Connect(config)
 
 ```javascript
-var AnvilConnectClient = require('anvil-connect-nodejs');
+var ConnectClient = require('camfou-connect-nodejs');
 
 // If the client has been pre-registered, pass the credentials to constructor
-var client = new AnvilConnectClient({
+var client = new ConnectClient({
   issuer: 'https://connect.example.com',
   client_id: 'CLIENT_ID',
   client_secret: 'CLIENT_SECRET',
@@ -50,7 +50,7 @@ client.initProvider()
   })
 
 // If the client has not been registered, use OIDC dynamic registration
-var client = new AnvilConnectClient({ issuer: 'https://connect.example.com' })
+var client = new ConnectClient({ issuer: 'https://connect.example.com' })
 client.initProvider()
   .then(function () {
     // Provider config loaded (.discover() and .getJWKs() called)
