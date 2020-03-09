@@ -1,6 +1,6 @@
 {
   "name": "camfou-connect-nodejs",
-  "version": "0.6.0",
+  "version": "0.0.0-development",
   "description": "Fork of Anvil Connect JavaScript client for Node.js",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "test-watch": "mocha --compilers coffee:coffee-script/register -R spec --watch",
     "lint": "eslint --ignore-path .gitignore . && echo Code looks good!",
     "cover": "nyc  --reporter=lcov npm test",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -56,7 +57,8 @@
     "nyc": "^13.3.0",
     "pem-jwk": "^1.5.1",
     "sinon": "^7.2.7",
-    "sinon-chai": "^3.3.0"
+    "sinon-chai": "^3.3.0",
+    "semantic-release": "^17.0.4"
   },
   "standard": {
     "globals": [
